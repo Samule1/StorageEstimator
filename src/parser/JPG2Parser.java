@@ -20,8 +20,6 @@ public class JPG2Parser implements LineParser< Boolean> {
 			throw new InvalidImageParameterException(args);
 		}
 
-		
-		
 	}
 
 	public Boolean validate(String[] args, InputBlock block) {

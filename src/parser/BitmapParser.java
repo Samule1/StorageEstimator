@@ -24,6 +24,7 @@ public class BitmapParser implements LineParser<Boolean> {
 
 	public Boolean validate(String[] args, InputBlock block) {
 		
+		
 		if(!(args.length == 2)) {
 			return false;
 		}

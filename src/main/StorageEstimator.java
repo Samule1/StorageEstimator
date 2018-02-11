@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import eval.StorageEvaluator;
 
-public class RunFromHere {
+public class StorageEstimator {
 	
 	public static void main(String [] args) {
 		
@@ -19,7 +19,7 @@ public class RunFromHere {
 		System.out.println("==========================================");
 		System.out.println();
 		System.out.println("- Enter one image per row.");
-		System.out.println("- Group images by enetering G i, i, ... , i \n  where i is an image index.");
+		System.out.println("- Group images by entering G i, i, ... , i \n  where i is an image index.");
 		System.out.println("- Enter q on a new line to evaluate input.");
 		System.out.println();
 		System.out.println("Enter your input below this line -->");	
