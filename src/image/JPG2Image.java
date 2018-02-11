@@ -1,4 +1,4 @@
-
+package image;
 public class JPG2Image extends Image{
 
 	public JPG2Image(int width, int height) {

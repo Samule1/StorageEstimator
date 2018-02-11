@@ -1,15 +1,26 @@
+package main;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import exception.UnsupportedCommandException;
+import group.BasicGroup;
+import group.Group;
+import image.Image;
+import parser.BitmapParser;
+import parser.GroupParser;
+import parser.JPG2Parser;
+import parser.JPGParser;
+import parser.LineParser;
+
 public class InputBlock {
 	
 	private List<Image> images;
 	private List<Group> groups;
 	public Group unassigned;
-	private Map<String, LineParser<?,?>> parsers; 
+	private Map<String, LineParser<?>> parsers; 
 	private int nextUnassignedMemberId = 1; 
 	
 	public InputBlock() {
@@ -35,7 +46,10 @@ public class InputBlock {
 		
 		for(String line : input) {
 			String[] lineComponents = line.split(" ");
-			LineParser<?, ?> parser = parsers.get(lineComponents[0]);
+			LineParser<?> parser = parsers.get(lineComponents[0]);
+			
+			if(parser == null) {throw new UnsupportedCommandException(lineComponents[0]);}
+			
 			String[] arguments = Arrays.copyOfRange(lineComponents, 1, lineComponents.length);
 			parser.parseAndExecute(arguments, this);
 		}

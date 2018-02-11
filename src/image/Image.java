@@ -1,3 +1,5 @@
+package image;
+
 
 public abstract class Image {
 	protected int width;

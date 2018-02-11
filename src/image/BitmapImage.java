@@ -1,4 +1,4 @@
-
+package image;
 public class BitmapImage extends Image {
 	
 	private BitmapImage nextLevel = null;

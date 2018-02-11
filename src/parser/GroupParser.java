@@ -1,9 +1,14 @@
+package parser;
 
+import exception.InvalidGroupException;
+import group.BasicGroup;
+import group.Group;
+import main.InputBlock;
 
-public class GroupParser implements LineParser<Boolean, Boolean> {
+public class GroupParser implements LineParser<Boolean> {
 
 	@Override
-	public Boolean parseAndExecute(String[] args, InputBlock block) {
+	public void parseAndExecute(String[] args, InputBlock block) {
 		
 		if(this.validate(args, block)) {
 			Group group = new BasicGroup();
@@ -14,18 +19,20 @@ public class GroupParser implements LineParser<Boolean, Boolean> {
 			}
 			
 			block.addGroup(group);
-			return true;
+
 		}
-		
-		return false;
-		
-		
-		
+		else {
+			throw new InvalidGroupException(args);
+		}
 		
 	}
 
 	@Override
 	public Boolean validate(String[] args, InputBlock block) {
+		
+		if(args.length < 2) {
+			return false;
+		}
 		
 		for(String arg : args) {
 			try {

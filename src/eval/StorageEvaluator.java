@@ -1,4 +1,9 @@
+package eval;
 import java.util.List;
+
+import group.Group;
+import image.Image;
+import main.InputBlock;
 
 public class StorageEvaluator implements BlockEvaluator<Integer> {
 

@@ -1,7 +1,11 @@
+package parser;
+import exception.InvalidImageParameterException;
+import image.JPG2Image;
+import main.InputBlock;
 
-public class JPG2Parser implements LineParser<JPG2Image, Boolean> {
+public class JPG2Parser implements LineParser< Boolean> {
 	
-	public JPG2Image parseAndExecute(String[] args, InputBlock block) {
+	public void parseAndExecute(String[] args, InputBlock block) {
 		
 		if(this.validate(args, block)) {
 			int width = Integer.parseInt(args[0]);
@@ -12,8 +16,10 @@ public class JPG2Parser implements LineParser<JPG2Image, Boolean> {
 			
 			block.addUnassigned(img, block.getNextUnassignedMemberId());
 		}
-		
-		return null;
+		else {
+			throw new InvalidImageParameterException(args);
+		}
+
 		
 		
 	}
@@ -25,8 +31,12 @@ public class JPG2Parser implements LineParser<JPG2Image, Boolean> {
 		}
 		
 		try {
-			Integer.parseInt(args[0]);
-			Integer.parseInt(args[1]);
+			int width = Integer.parseInt(args[0]);
+			int height = Integer.parseInt(args[1]);
+			
+			if(width < 1 || height < 1) {
+				return false;
+			}
 		}
 		catch(NumberFormatException e) {
 			return false;

@@ -1,3 +1,5 @@
+package eval;
+import main.InputBlock;
 
 public interface BlockEvaluator<T> {
 	

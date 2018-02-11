@@ -1,4 +1,7 @@
+package group;
 import java.util.List;
+
+import image.Image;
 
 public interface Group {
 
