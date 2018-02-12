@@ -3,23 +3,23 @@ package parser;
 import exception.InvalidGroupException;
 import group.BasicGroup;
 import group.Group;
-import main.InputBlock;
+import main.InputHandler;
 
 public class GroupParser implements LineParser{
 
 	@Override
-	public void parseAndExecute(String[] args, InputBlock block) {
+	public void parseAndExecute(String[] args, InputHandler handler) {
 		
-		if(this.validate(args, block)) {
+		if(this.validate(args, handler)) {
 			
 			Group group = new BasicGroup();
 			
 			for(String s : args) {
 				int id = Integer.parseInt(s);
-				group.addMember(block.deleteUnassigned(id), id);
+				group.addMember(handler.deleteUnassigned(id), id);
 			}
 			
-			block.addGroup(group);
+			handler.addGroup(group);
 
 		}
 		else {
@@ -28,7 +28,7 @@ public class GroupParser implements LineParser{
 	}
 
 	@Override
-	public boolean validate(String[] args, InputBlock block) {
+	public boolean validate(String[] args, InputHandler handler) {
 		
 		if(args.length < 2) {return false;}
 		
@@ -36,7 +36,7 @@ public class GroupParser implements LineParser{
 			
 			try {
 				int id = Integer.parseInt(arg);
-				if(!block.isUnassigned(id)) {return false;}
+				if(!handler.isUnassigned(id)) {return false;}
 			}
 			
 			catch(NumberFormatException e) {return false;}

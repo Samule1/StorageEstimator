@@ -1,7 +1,7 @@
 package parser;
-import main.InputBlock;
+import main.InputHandler;
 
 public interface LineParser {
-	public void parseAndExecute(String[] args, InputBlock block);
-	public boolean validate(String[] args, InputBlock block); 
+	public void parseAndExecute(String[] args, InputHandler handler);
+	public boolean validate(String[] args, InputHandler handler); 
 }

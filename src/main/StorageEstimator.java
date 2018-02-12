@@ -35,12 +35,12 @@ public class StorageEstimator {
 		}
 		
 		//Parse input
-		InputBlock block = new InputBlock();
-		block.parse(inputLines);
+		InputHandler handler = new InputHandler();
+		handler.parse(inputLines);
 
 		StorageEvaluator eval = new StorageEvaluator();
 		
-		int result = eval.evaluate(block);
+		int result = eval.evaluate(handler);
 		
 		NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
 	    String resultString = numberFormat.format(result);

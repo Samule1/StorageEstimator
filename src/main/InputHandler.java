@@ -15,14 +15,14 @@ import parser.JPG2Parser;
 import parser.JPGParser;
 import parser.LineParser;
 
-public class InputBlock {
+public class InputHandler {
 	
 	private List<Group> groups;
 	private Group unassigned;
 	private Map<String, LineParser> parsers; 
 	private int nextUnassignedMemberId = 1; 
 	
-	public InputBlock() {
+	public InputHandler() {
 	
 		this.groups = new ArrayList<>();
 		this.parsers = new HashMap<>();

@@ -1,8 +1,8 @@
 package eval;
-import main.InputBlock;
+import main.InputHandler;
 
 public interface BlockEvaluator<T> {
 	
-	public T evaluate(InputBlock block);
+	public T evaluate(InputHandler handler);
 
 }

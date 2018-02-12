@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.InputBlock;
+import main.InputHandler;
 import eval.StorageEvaluator;
 import exception.InvalidGroupException;
 import exception.InvalidImageParameterException;
@@ -21,7 +21,7 @@ public class AllTests {
 	List<String> usrInput3;
 	List<String> usrInput4;
 	
-	InputBlock block;
+	InputHandler block;
 
 	@Before
 	public void setUp() throws Exception {
@@ -59,7 +59,7 @@ public class AllTests {
 		usrInput4.add("J 3 3");
 		usrInput4.add("G 1 2 3 4");
 		
-		block = new InputBlock();
+		block = new InputHandler();
 		
 	}
 

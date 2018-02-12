@@ -3,22 +3,22 @@ import java.util.List;
 
 import group.Group;
 import image.Image;
-import main.InputBlock;
+import main.InputHandler;
 
 public class StorageEvaluator implements BlockEvaluator<Integer> {
 
 	@Override
-	public Integer evaluate(InputBlock block) {
+	public Integer evaluate(InputHandler handler) {
 		
 		int costOfNonMemebers = 0;
 		int costOfMembers = 0;
 		
-		List<Image> nonMembers = block.getAllUnassigned();
+		List<Image> nonMembers = handler.getAllUnassigned();
 		for(Image img : nonMembers) {
 			costOfNonMemebers += img.getCost();
 		}
 		
-		List<Group> imageGroups = block.getGroups();
+		List<Group> imageGroups = handler.getGroups();
 		
 		for(Group group : imageGroups) {
 			

@@ -1,19 +1,19 @@
 package parser;
 import exception.InvalidImageParameterException;
 import image.JPG2Image;
-import main.InputBlock;
+import main.InputHandler;
 
 public class JPG2Parser implements LineParser {
 	
-	public void parseAndExecute(String[] args, InputBlock block) {
+	public void parseAndExecute(String[] args, InputHandler handler) {
 		
-		if(this.validate(args, block)) {
+		if(this.validate(args, handler)) {
 			
 			int width = Integer.parseInt(args[0]);
 			int height = Integer.parseInt(args[1]);
 			
 			JPG2Image img = new JPG2Image(width, height);
-			block.addUnassigned(img, block.getNextUnassignedMemberId());
+			handler.addUnassigned(img, handler.getNextUnassignedMemberId());
 		}
 		else {
 			throw new InvalidImageParameterException(args);
@@ -21,7 +21,7 @@ public class JPG2Parser implements LineParser {
 
 	}
 
-	public boolean validate(String[] args, InputBlock block) {
+	public boolean validate(String[] args, InputHandler handler) {
 		
 		if(!(args.length == 2)) {return false;}
 		
