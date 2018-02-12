@@ -9,15 +9,17 @@ public class StorageEvaluator implements BlockEvaluator<Integer> {
 
 	@Override
 	public Integer evaluate(InputBlock block) {
+		
 		int costOfNonMemebers = 0;
 		int costOfMembers = 0;
 		
-		List<Image> nonMembers = block.unassigned.getMembers();
+		List<Image> nonMembers = block.getAllUnassigned();
 		for(Image img : nonMembers) {
 			costOfNonMemebers += img.getCost();
 		}
 		
 		List<Group> imageGroups = block.getGroups();
+		
 		for(Group group : imageGroups) {
 			
 			List<Image> members = group.getMembers();
@@ -27,12 +29,9 @@ public class StorageEvaluator implements BlockEvaluator<Integer> {
 				groupTotal += img.getCost();
 			}
 			
-			costOfMembers += groupTotal / Math.log(members.size() + 3);
-			
-			
+			costOfMembers += Math.floor(groupTotal / Math.log(members.size() + 3));			
 		}
-		
-		
+			
 		return costOfMembers + costOfNonMemebers;
 	}
 

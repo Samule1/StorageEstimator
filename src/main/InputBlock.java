@@ -17,15 +17,13 @@ import parser.LineParser;
 
 public class InputBlock {
 	
-	private List<Image> images;
 	private List<Group> groups;
-	public Group unassigned;
-	private Map<String, LineParser<?>> parsers; 
+	private Group unassigned;
+	private Map<String, LineParser> parsers; 
 	private int nextUnassignedMemberId = 1; 
 	
 	public InputBlock() {
-		
-		this.images = new ArrayList<>();
+	
 		this.groups = new ArrayList<>();
 		this.parsers = new HashMap<>();
 		this.unassigned = new BasicGroup();
@@ -39,14 +37,11 @@ public class InputBlock {
 		
 	}
 	
-	/* The parse method reads each line of the
-	 * input and assigns every image to a group
-	 */
 	public void parse(List<String> input) {
 		
 		for(String line : input) {
 			String[] lineComponents = line.split(" ");
-			LineParser<?> parser = parsers.get(lineComponents[0]);
+			LineParser parser = parsers.get(lineComponents[0]);
 			
 			if(parser == null) {throw new UnsupportedCommandException(lineComponents[0]);}
 			
@@ -60,22 +55,9 @@ public class InputBlock {
 		return groups;
 	}
 	
-	public Group getGroup(int groupNumber){
-		return groups.get(groupNumber);
-	}
-	
 	public void addGroup(Group group) {
 		groups.add(group);
 	}
-	
-	public Image getImage(int imageNumber) {
-		return images.get(imageNumber);
-	}
-	
-	public void addImage(Image img) {
-		images.add(img);
-	}
-	
 	
 	public int getNextUnassignedMemberId() {
 		return nextUnassignedMemberId++;
@@ -84,7 +66,17 @@ public class InputBlock {
 	public void addUnassigned(Image img, int id) {
 		unassigned.addMember(img, id);
 	}
-		
 	
+	public Image deleteUnassigned(int id) {
+		return unassigned.deleteMember(id);
+	}
+	
+	public List<Image> getAllUnassigned(){
+		return unassigned.getMembers();
+	}
+	
+	public boolean isUnassigned(int id) {
+		return unassigned.hasMember(id);
+	}
 
 }
