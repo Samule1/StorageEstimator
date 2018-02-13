@@ -7,6 +7,13 @@ import java.util.Map;
 
 import image.Image;
 
+/**
+ * A class that implements the group interface. Used for grouping
+ * of images.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class BasicGroup implements Group{
 	
 	private Map<Integer, Image> members;

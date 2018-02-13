@@ -1,4 +1,11 @@
 package image;
+/**
+ * 
+ * Image class for images of the type JPEG.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class JPGImage extends Image {
 	
 	private JPGImage nextLevel = null;

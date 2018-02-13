@@ -2,7 +2,13 @@ package parser;
 import exception.InvalidImageParameterException;
 import image.JPG2Image;
 import main.InputHandler;
-
+/**
+ * 
+ * Input parser for JPEG2000 images.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class JPG2Parser implements LineParser {
 	
 	public void parseAndExecute(String[] args, InputHandler handler) {

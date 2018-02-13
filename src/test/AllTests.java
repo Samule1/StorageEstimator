@@ -62,7 +62,42 @@ public class AllTests {
 		block = new InputHandler();
 		
 	}
-
+	@Test
+	public void oneJPG() {
+		
+		List<String> input = new ArrayList<>();
+		input.add("JPG 9999 9999");
+		block.parse(input);
+		StorageEvaluator evaluator= new StorageEvaluator();
+		int res = evaluator.evaluate(block);
+		
+		assertEquals(res, 26657210);
+	}
+	
+	@Test
+	public void oneJP2() {
+		
+		List<String> input = new ArrayList<>();
+		input.add("JPEG2000 9999 9999");
+		block.parse(input);
+		StorageEvaluator evaluator= new StorageEvaluator();
+		int res = evaluator.evaluate(block);
+		
+		assertEquals(res, 13726619);
+	}
+	
+	@Test
+	public void oneBMP() {
+		
+		List<String> input = new ArrayList<>();
+		input.add("BMP 9999 9999");
+		block.parse(input);
+		StorageEvaluator evaluator= new StorageEvaluator();
+		int res = evaluator.evaluate(block);
+		
+		assertEquals(res, 133286060);
+	}
+	
 	@Test
 	public void allTypesWithSimpleGroup() {
 		

@@ -4,7 +4,13 @@ import exception.InvalidGroupException;
 import group.BasicGroup;
 import group.Group;
 import main.InputHandler;
-
+/**
+ * 
+ * Input parser for group command.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class GroupParser implements LineParser{
 
 	@Override

@@ -14,7 +14,18 @@ import parser.GroupParser;
 import parser.JPG2Parser;
 import parser.JPGParser;
 import parser.LineParser;
-
+/**
+ * 
+ * The InpuHandler class receives user input in the form of a list of strings,
+ * one for each line. An line takes the form -command -param_1 -param_2 .. param_n
+ * e.g JPG 100 100.
+ * 
+ * Support for new commands or file types is done by adding to the map of
+ * parsers: a string which is the command and a parser for that type. 
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class InputHandler {
 	
 	private List<Group> groups;

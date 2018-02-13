@@ -7,6 +7,17 @@ import java.util.Scanner;
 
 import eval.StorageEvaluator;
 
+/**
+ * This is the class contains the main method. It prints the header
+ * and scans stdin for user input in the form of lines. When the input
+ * has been received and parsed it is evaluated and the result is printed
+ * to stdout. 
+ * 
+ * @author Hampus Carlsson
+ *
+ */
+
+
 public class StorageEstimator {
 	
 	public static void main(String [] args) {
@@ -33,6 +44,7 @@ public class StorageEstimator {
 			inputLines.add(input);
 			input = sysin.nextLine();
 		}
+		sysin.close();
 		
 		//Parse input
 		InputHandler handler = new InputHandler();
@@ -46,7 +58,6 @@ public class StorageEstimator {
 	    String resultString = numberFormat.format(result);
 	    System.out.println("Total size : "+resultString+" bytes");
 		
-		sysin.close();
 	}
 
 }

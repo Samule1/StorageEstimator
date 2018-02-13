@@ -1,4 +1,11 @@
 package image;
+/**
+ * 
+ * Image class for images of the type JPEG2000.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class JPG2Image extends Image{
 
 	public JPG2Image(int width, int height) {

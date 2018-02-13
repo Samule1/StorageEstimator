@@ -1,4 +1,11 @@
 package image;
+/**
+ * 
+ * Image class for images of the type uncompressed bitmap.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class BitmapImage extends Image {
 	
 	private BitmapImage nextLevel = null;

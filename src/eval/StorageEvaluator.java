@@ -5,6 +5,13 @@ import group.Group;
 import image.Image;
 import main.InputHandler;
 
+/**
+ * Evaluates the total storage in bytes as per the specification.
+ * Receives parsed input in the form of an input handler.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class StorageEvaluator implements BlockEvaluator<Integer> {
 
 	@Override

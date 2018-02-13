@@ -2,7 +2,13 @@ package parser;
 import exception.InvalidImageParameterException;
 import image.BitmapImage;
 import main.InputHandler;
-
+/**
+ * 
+ * Input parser for uncompressed bitmap images.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class BitmapParser implements LineParser {
 
 	public void parseAndExecute(String[] args, InputHandler handler) {

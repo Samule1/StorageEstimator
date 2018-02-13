@@ -2,7 +2,13 @@ package parser;
 import exception.InvalidImageParameterException;
 import image.JPGImage;
 import main.InputHandler;
-
+/**
+ * 
+ * Input parser for JPEG images.
+ * 
+ * @author Hampus Carlsson
+ *
+ */
 public class JPGParser implements LineParser {
 
 	public void parseAndExecute(String[] args, InputHandler handler) {
